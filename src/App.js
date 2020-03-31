@@ -309,10 +309,6 @@ const App = () => {
     window.innerWidth <= 768 ? setMobileView(true) : setMobileView(false);
   }, []);
 
-  useEffect(() => {
-    console.log(navIndex);
-  }, [navIndex]);
-
   if (userName) {
     if (!mobileView) {
       return (
