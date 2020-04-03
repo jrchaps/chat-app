@@ -7,7 +7,7 @@ require('dotenv/config');
 const path = require('path');
 const mongoose = require('mongoose');
 
-mongoose.connect(
+/*mongoose.connect(
   process.env.MONGO_URL,
   {
     useUnifiedTopology: true,
@@ -17,7 +17,7 @@ mongoose.connect(
   () => {
     console.log('connected to database');
   },
-);
+);*/
 
 const MessageSchema = mongoose.Schema({
   userName: String,
