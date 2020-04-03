@@ -44,6 +44,7 @@ http.listen(port, function() {
 app.use(express.static(path.join(__dirname, 'client/build')));
 
 io.on('connect', function(socket) {
+  console.log('user connected');
   let connectedSockets = nameSpace.connected;
   let userName = socket.handshake.query.userName;
 
