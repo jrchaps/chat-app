@@ -37,7 +37,7 @@ const Message = mongoose.model('Message', MessageSchema);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-http.listen(port, function() {
+app.listen(port, function() {
   console.log(`listening on port ${port}`);
 });
 

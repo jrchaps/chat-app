@@ -125,7 +125,7 @@ const App = () => {
   const [mobileView, setMobileView] = useState(false);
 
   if (!socket && userName) {
-    socket = io(window.location.hostname, {
+    socket = io({
       query: {
         userName,
         room: currentRoom,
