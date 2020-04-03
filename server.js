@@ -44,7 +44,6 @@ http.listen(port, function() {
 app.use(express.static(path.join(__dirname, 'client/build')));
 
 io.on('connect', function(socket) {
-  console.log('client connected');
   let connectedSockets = nameSpace.connected;
   let userName = socket.handshake.query.userName;
 
@@ -64,6 +63,7 @@ io.on('connect', function(socket) {
     if (error) {
       console.log(error);
     } else {
+      console.log('messages fetched');
       socket.emit('get messages', messages);
       socket.emit('get online users', onlineUsers);
     }
