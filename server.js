@@ -1,11 +1,11 @@
 const express = require('express');
 var app = express();
-var http = require('http').createServer(app);
-const io = require('socket.io')(http);
-const nameSpace = io.of('/');
-require('dotenv/config');
-const path = require('path');
-const mongoose = require('mongoose');
+//var http = require('http').createServer(app);
+//const io = require('socket.io')(http);
+//const nameSpace = io.of('/');
+//require('dotenv/config');
+//const path = require('path');
+//const mongoose = require('mongoose');
 
 /*mongoose.connect(
   process.env.MONGO_URL,
