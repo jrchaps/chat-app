@@ -4,11 +4,11 @@ const port = process.env.PORT || 3001;
 //var http = require('http').createServer(app);
 //const io = require('socket.io')(http);
 //const nameSpace = io.of('/');
-//require('dotenv/config');
+require('dotenv/config');
 //const path = require('path');
-//const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-/*mongoose.connect(
+mongoose.connect(
   process.env.MONGO_URL,
   {
     useUnifiedTopology: true,
@@ -18,7 +18,7 @@ const port = process.env.PORT || 3001;
   () => {
     console.log('connected to database');
   },
-);*/
+);
 
 /*const MessageSchema = mongoose.Schema({
   userName: String,
