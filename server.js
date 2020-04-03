@@ -37,13 +37,14 @@ const Message = mongoose.model('Message', MessageSchema);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.listen(port, function() {
+http.listen(port, function() {
   console.log(`listening on port ${port}`);
 });
 
 app.use(express.static(path.join(__dirname, 'client/build')));
 
 io.on('connect', function(socket) {
+  console.log('client connected');
   let connectedSockets = nameSpace.connected;
   let userName = socket.handshake.query.userName;
 
