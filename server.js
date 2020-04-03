@@ -40,8 +40,8 @@ http.listen(port, function() {
   console.log('listening on *:3001');
 });
 
-//app.use(express.static(path.join(__dirname, 'client/build')));
-app.get('/', (req, res) => res.send('Hello World!'));
+app.use(express.static(path.join(__dirname, 'client/build')));
+//app.get('/', (req, res) => res.send('Hello World!'));
 
 io.on('connect', function(socket) {
   let connectedSockets = nameSpace.connected;
