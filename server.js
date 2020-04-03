@@ -1,12 +1,12 @@
 const express = require('express');
-var app = express();
+const app = express();
 const port = process.env.PORT || 3001;
-//var http = require('http').createServer(app);
-//const io = require('socket.io')(http);
-//const nameSpace = io.of('/');
-require('dotenv/config');
-//const path = require('path');
+const http = require('http').createServer(app);
+const io = require('socket.io')(http);
+const nameSpace = io.of('/');
+const path = require('path');
 const mongoose = require('mongoose');
+require('dotenv/config');
 
 mongoose.connect(
   process.env.MONGO_URL,
@@ -20,7 +20,7 @@ mongoose.connect(
   },
 );
 
-/*const MessageSchema = mongoose.Schema({
+const MessageSchema = mongoose.Schema({
   userName: String,
   room: String,
   message: String,
@@ -29,22 +29,21 @@ mongoose.connect(
   expire_at: { type: Date, default: Date.now, expires: 86400 },
 });
 
-const Message = mongoose.model('Message', MessageSchema);*/
+const Message = mongoose.model('Message', MessageSchema);
 
 //Message.deleteMany({}, error => error && console.log(error));
 
-//app.use(express.json());
-//app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
-/*http.listen(3001, function() {
+http.listen(port, function() {
   console.log('listening on *:3001');
-});*/
+});
 
 //app.use(express.static(path.join(__dirname, 'client/build')));
 app.get('/', (req, res) => res.send('Hello World!'));
-app.listen(port, () => console.log(`port is ${port}`));
 
-/*io.on('connect', function(socket) {
+io.on('connect', function(socket) {
   let connectedSockets = nameSpace.connected;
   let userName = socket.handshake.query.userName;
 
@@ -107,4 +106,4 @@ app.listen(port, () => console.log(`port is ${port}`));
       error && console.log(error);
     });
   });
-});*/
+});
