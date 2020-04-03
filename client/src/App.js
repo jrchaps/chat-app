@@ -10,6 +10,8 @@ import Users from './components/Users';
 import Form from './components/Form';
 import BottomNav from './components/BottomNav';
 
+const PORT = process.env.PORT || ':3001';
+
 const MainGrid = styled.div`
   height: 100vh;
   display: grid;
@@ -125,7 +127,7 @@ const App = () => {
   const [mobileView, setMobileView] = useState(false);
 
   if (!socket && userName) {
-    socket = io(`:3001`, {
+    socket = io(PORT, {
       query: {
         userName,
         room: currentRoom,
