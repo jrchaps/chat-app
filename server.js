@@ -19,7 +19,7 @@ const mongoose = require('mongoose');
   },
 );*/
 
-const MessageSchema = mongoose.Schema({
+/*const MessageSchema = mongoose.Schema({
   userName: String,
   room: String,
   message: String,
@@ -28,7 +28,7 @@ const MessageSchema = mongoose.Schema({
   expire_at: { type: Date, default: Date.now, expires: 86400 },
 });
 
-const Message = mongoose.model('Message', MessageSchema);
+const Message = mongoose.model('Message', MessageSchema);*/
 
 //Message.deleteMany({}, error => error && console.log(error));
 
@@ -42,7 +42,7 @@ app.use(express.urlencoded({ extended: false }));
 //app.use(express.static(path.join(__dirname, 'client/build')));
 app.get('/', (req, res) => res.send('Hello World!'));
 
-io.on('connect', function(socket) {
+/*io.on('connect', function(socket) {
   let connectedSockets = nameSpace.connected;
   let userName = socket.handshake.query.userName;
 
@@ -105,4 +105,4 @@ io.on('connect', function(socket) {
       error && console.log(error);
     });
   });
-});
+});*/
