@@ -39,7 +39,7 @@ http.listen(3001, function() {
   console.log('listening on *:3001');
 });
 
-app.use(express.static(path.join(__dirname, 'client/build')));
+//app.use(express.static(path.join(__dirname, 'client/build')));
 
 io.on('connect', function(socket) {
   let connectedSockets = nameSpace.connected;
