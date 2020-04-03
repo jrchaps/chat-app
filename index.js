@@ -7,8 +7,6 @@ require('dotenv/config');
 const path = require('path');
 const mongoose = require('mongoose');
 
-console.log('file executed.');
-
 mongoose.connect(
   process.env.MONGO_URL,
   {
