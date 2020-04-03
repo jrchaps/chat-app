@@ -35,9 +35,9 @@ const Message = mongoose.model('Message', MessageSchema);
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-http.listen(3001, function() {
+/*http.listen(3001, function() {
   console.log('listening on *:3001');
-});
+});*/
 
 //app.use(express.static(path.join(__dirname, 'client/build')));
 app.get('/', (req, res) => res.send('Hello World!'));
