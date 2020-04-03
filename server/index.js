@@ -4,6 +4,7 @@ var http = require('http').createServer(app);
 const io = require('socket.io')(http);
 const nameSpace = io.of('/');
 require('dotenv/config');
+const path = require('path');
 const mongoose = require('mongoose');
 
 mongoose.connect(
@@ -37,6 +38,8 @@ app.use(express.urlencoded({ extended: false }));
 http.listen(3001, function() {
   console.log('listening on *:3001');
 });
+
+app.use(express.static(path.join(__dirname, '../public')));
 
 io.on('connect', function(socket) {
   let connectedSockets = nameSpace.connected;
