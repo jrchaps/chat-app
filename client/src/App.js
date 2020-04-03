@@ -10,8 +10,6 @@ import Users from './components/Users';
 import Form from './components/Form';
 import BottomNav from './components/BottomNav';
 
-const PORT = process.env.PORT || ':3001';
-
 const MainGrid = styled.div`
   height: 100vh;
   display: grid;
@@ -126,12 +124,8 @@ const App = () => {
   const [navIndex, setNavIndex] = useState(0);
   const [mobileView, setMobileView] = useState(false);
 
-  useEffect(() => {
-    console.log(PORT);
-  }, []);
-
   if (!socket && userName) {
-    socket = io(PORT, {
+    socket = io('https://socket-io-chat-app-chapman.herokuapp.com', {
       query: {
         userName,
         room: currentRoom,
