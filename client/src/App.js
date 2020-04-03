@@ -126,6 +126,10 @@ const App = () => {
   const [navIndex, setNavIndex] = useState(0);
   const [mobileView, setMobileView] = useState(false);
 
+  useEffect(() => {
+    console.log(PORT);
+  }, []);
+
   if (!socket && userName) {
     socket = io(PORT, {
       query: {
