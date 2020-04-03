@@ -1,6 +1,6 @@
 const express = require('express');
 var app = express();
-//const port = 3000
+const port = 3001;
 //var http = require('http').createServer(app);
 //const io = require('socket.io')(http);
 //const nameSpace = io.of('/');
@@ -42,6 +42,7 @@ const Message = mongoose.model('Message', MessageSchema);*/
 
 //app.use(express.static(path.join(__dirname, 'client/build')));
 app.get('/', (req, res) => res.send('Hello World!'));
+app.listen(port, () => console.log(`port is ${port}`));
 
 /*io.on('connect', function(socket) {
   let connectedSockets = nameSpace.connected;
