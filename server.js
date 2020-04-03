@@ -17,6 +17,7 @@ mongoose.connect(
   },
   () => {
     console.log('connected to database');
+    console.log(`port is ${port}`);
   },
 );
 
