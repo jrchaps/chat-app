@@ -1,5 +1,6 @@
 const express = require('express');
 var app = express();
+//const port = 3000
 //var http = require('http').createServer(app);
 //const io = require('socket.io')(http);
 //const nameSpace = io.of('/');
@@ -32,8 +33,8 @@ const Message = mongoose.model('Message', MessageSchema);*/
 
 //Message.deleteMany({}, error => error && console.log(error));
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+//app.use(express.json());
+//app.use(express.urlencoded({ extended: false }));
 
 /*http.listen(3001, function() {
   console.log('listening on *:3001');
