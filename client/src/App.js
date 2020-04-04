@@ -125,7 +125,7 @@ const App = () => {
   const [mobileView, setMobileView] = useState(false);
 
   if (!socket && userName) {
-    socket = io('https://socket-io-chat-app-chapman.herokuapp.com', {
+    socket = io(':3001', {
       query: {
         userName,
         room: currentRoom,
