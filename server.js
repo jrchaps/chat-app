@@ -27,7 +27,7 @@ const MessageSchema = mongoose.Schema({
   message: String,
   date: Number,
   sent: Boolean,
-  expire_at: { type: Date, default: Date.now, expires: 86400 },
+  expire_at: { type: Date, expireAfterSeconds: 86400 },
 });
 
 const Message = mongoose.model('Message', MessageSchema);
@@ -49,6 +49,7 @@ io.on('connect', function(socket) {
   let userName = socket.handshake.query.userName;
 
   let room = socket.handshake.query.room;
+  console.log(room);
   socket.join(room);
 
   let onlineUsers = {};
