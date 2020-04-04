@@ -8,23 +8,20 @@ const path = require('path');
 const mongoose = require('mongoose');
 require('dotenv/config');
 
-mongoose
-  .connect(
-    process.env.MONGO_URL,
-    {
-      useUnifiedTopology: true,
-      useNewUrlParser: true,
-      useCreateIndex: true,
-    },
-    () => {
-      console.log('connected to database');
-      console.log(`port is ${port}`);
-    },
-  )
-  .catch(error => console.log(error));
+mongoose.connect(
+  process.env.MONGO_URL,
+  {
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+    useCreateIndex: true,
+  },
+  error => {
+    console.log(error);
+  },
+);
 
 mongoose.connection.on('error', error => {
-  console.log(error);
+  console.log('error', error);
 });
 
 const MessageSchema = mongoose.Schema({
