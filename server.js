@@ -32,6 +32,14 @@ const MessageSchema = mongoose.Schema({
 
 const Message = mongoose.model('Message', MessageSchema);
 
+Message.find({ room }, (error, messages) => {
+  if (error) {
+    console.log(error);
+  } else {
+    console.log('messages fetched', messages);
+  }
+});
+
 //Message.deleteMany({}, error => error && console.log(error));
 //uncomment this and run to clear the collection ^^
 
@@ -49,7 +57,6 @@ io.on('connect', function(socket) {
   let userName = socket.handshake.query.userName;
 
   let room = socket.handshake.query.room;
-  console.log(room);
   socket.join(room);
 
   let onlineUsers = {};
