@@ -20,28 +20,20 @@ mongoose.connect(
   },
 );
 
-mongoose.connection.on('error', error => {
-  console.log('error', error);
-});
-
 const MessageSchema = mongoose.Schema({
   userName: String,
   room: String,
   message: String,
   date: Number,
   sent: Boolean,
-  expire_at: { type: Date, expireAfterSeconds: 86400 },
+  createdAt: {
+    type: Date,
+    expires: 86400,
+    default: Date.now,
+  },
 });
 
 const Message = mongoose.model('Message', MessageSchema);
-
-Message.find({}, (error, messages) => {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log('messages fetched', messages);
-  }
-});
 
 //Message.deleteMany({}, error => error && console.log(error));
 //uncomment this and run to clear the collection ^^
