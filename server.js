@@ -32,7 +32,7 @@ const MessageSchema = mongoose.Schema({
 
 const Message = mongoose.model('Message', MessageSchema);
 
-Message.find({ room }, (error, messages) => {
+Message.find({}, (error, messages) => {
   if (error) {
     console.log(error);
   } else {
