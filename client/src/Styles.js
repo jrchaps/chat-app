@@ -88,7 +88,7 @@ export const lightTheme = {
         lowOpacity: 'rgba(236, 239, 241, 0.38)',
       },
       dark: {
-        fullOpacity: '#babdbe',
+        fullOpacity: '#dbdbdb',
         highOpacity: 'rgb(186, 189, 190, 0.87)',
         mediumOpacity: 'rgb(186, 189, 190, 0.6)',
         lowOpacity: 'rgb(186, 189, 190, 0.38)',

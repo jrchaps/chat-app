@@ -36,14 +36,14 @@ const MessageContainer = styled.div`
 const UserName = styled.p`
   grid-area: user-name;
   font-size: 18px;
-  margin: 4px 0px;
+  margin: 12px 0px;
 `;
 
 const Time = styled.p`
   grid-area: time;
   font-size: 12px;
   margin: 0px;
-  color: ${props => props.theme.textColor.mediumOpacity};
+  color: ${props => props.theme.textColor.highOpacity};
 `;
 
 const Message = styled.p`
