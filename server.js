@@ -35,18 +35,15 @@ const MessageSchema = mongoose.Schema({
 
 const Message = mongoose.model('Message', MessageSchema);
 
-Message.deleteMany({}, error => error && console.log(error));
-//uncomment this and run to clear the collection ^^
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-http.listen(port, function() {
+http.listen(port, function () {
   console.log(`listening on port ${port}`);
 });
 
 app.use(express.static(path.join(__dirname, 'client/build')));
 
-io.on('connect', function(socket) {
+io.on('connect', function (socket) {
   console.log('user connected');
   let connectedSockets = nameSpace.connected;
   let userName = socket.handshake.query.userName;
@@ -92,16 +89,16 @@ io.on('connect', function(socket) {
     socket.broadcast.emit('user changed room', socket.id, room);
   });
 
-  socket.on('user typing', function() {
+  socket.on('user typing', function () {
     socket.to(room).emit('user typing', socket.id, userName);
   });
 
-  socket.on('user stopped typing', function() {
+  socket.on('user stopped typing', function () {
     socket.to(room).emit('user stopped typing', socket.id);
     isTyping = false;
   });
 
-  socket.on('chat message', function(message, privateUser, privateUserRoom) {
+  socket.on('chat message', function (message, privateUser, privateUserRoom) {
     message.sent = true;
     if (privateUser && privateUserRoom !== room) {
       io.to(privateUser).emit('private message notification', socket.id);
