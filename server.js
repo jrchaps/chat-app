@@ -35,7 +35,7 @@ const MessageSchema = mongoose.Schema({
 
 const Message = mongoose.model('Message', MessageSchema);
 
-//Message.deleteMany({}, error => error && console.log(error));
+Message.deleteMany({}, error => error && console.log(error));
 //uncomment this and run to clear the collection ^^
 
 app.use(express.json());

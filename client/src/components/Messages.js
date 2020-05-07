@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useLayoutEffect } from 'react';
 import styled from 'styled-components/macro';
 import * as moment from 'moment';
 import Spinner from './Spinner';
@@ -62,9 +62,9 @@ const Messages = ({ roomMessages, isFetching }) => {
   const ref = useRef();
   const isAtBottom = useRef(true);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (isAtBottom.current && ref.current) {
-      ref.current.scroll(0, ref.current.scrollHeight);
+      ref.current.scrollTop = ref.current.scrollHeight;
     }
   }, [roomMessages]);
 
